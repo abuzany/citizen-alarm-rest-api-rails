@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>test.log - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../README_md.html">README</a>
+  
+    <li><a href="../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../app/assets/config/manifest_js.html">manifest.js</a>
+  
+    <li><a href="../app/assets/javascripts/alert_coffee.html">alert.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/alert_types_coffee.html">alert_types.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/alerts_coffee.html">alerts.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../app/assets/javascripts/cable_js.html">cable.js</a>
+  
+    <li><a href="../app/assets/stylesheets/alert_scss.html">alert.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/alert_types_scss.html">alert_types.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/alerts_scss.html">alerts.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../config_ru.html">config.ru</a>
+  
+    <li><a href="../lists_py.html">lists.py</a>
+  
+    <li><a href="../log/development_log.html">development.log</a>
+  
+    <li><a href="../log/test_log.html">test.log</a>
+  
+    <li><a href="../public/404_html.html">404.html</a>
+  
+    <li><a href="../public/422_html.html">422.html</a>
+  
+    <li><a href="../public/500_html.html">500.html</a>
+  
+    <li><a href="../public/apple-touch-icon-precomposed_png.html">apple-touch-icon-precomposed.png</a>
+  
+    <li><a href="../public/apple-touch-icon_png.html">apple-touch-icon.png</a>
+  
+    <li><a href="../public/favicon_ico.html">favicon.ico</a>
+  
+    <li><a href="../public/robots_txt.html">robots</a>
+  
+    <li><a href="../tmp/restart_txt.html">restart</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page log/test.log">
+
+<pre>[1m[35m (530.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS &quot;citizen-alarm-api-rest_test&quot;[0m
+[1m[35m (1173.3ms)[0m  [1m[35mCREATE DATABASE &quot;citizen-alarm-api-rest_test&quot; ENCODING = &#39;unicode&#39;[0m
+[1m[35mSQL (37.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS &quot;plpgsql&quot;[0m
+[1m[35m (94.3ms)[0m  [1m[35mCREATE TABLE &quot;alert_types&quot; (&quot;id&quot; serial primary key, &quot;alert_id&quot; integer, &quot;description&quot; text, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL)[0m
+[1m[35m (50.9ms)[0m  [1m[35mCREATE  INDEX  &quot;index_alert_types_on_alert_id&quot; ON &quot;alert_types&quot; USING btree (&quot;alert_id&quot;)[0m
+[1m[35m (114.2ms)[0m  [1m[35mCREATE TABLE &quot;alerts&quot; (&quot;id&quot; serial primary key, &quot;alert_type_id&quot; integer, &quot;description&quot; text, &quot;latitude&quot; float, &quot;longitude&quot; float, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL, &quot;user_id&quot; integer)[0m
+[1m[35m (69.7ms)[0m  [1m[35mCREATE  INDEX  &quot;index_alerts_on_alert_type_id&quot; ON &quot;alerts&quot; USING btree (&quot;alert_type_id&quot;)[0m
+[1m[35m (63.2ms)[0m  [1m[35mCREATE  INDEX  &quot;index_alerts_on_user_id&quot; ON &quot;alerts&quot; USING btree (&quot;user_id&quot;)[0m
+[1m[35m (92.6ms)[0m  [1m[35mCREATE TABLE &quot;users&quot; (&quot;id&quot; serial primary key, &quot;provider&quot; character varying DEFAULT &#39;email&#39; NOT NULL, &quot;uid&quot; character varying DEFAULT &#39;&#39; NOT NULL, &quot;encrypted_password&quot; character varying DEFAULT &#39;&#39; NOT NULL, &quot;reset_password_token&quot; character varying, &quot;reset_password_sent_at&quot; timestamp, &quot;remember_created_at&quot; timestamp, &quot;sign_in_count&quot; integer DEFAULT 0 NOT NULL, &quot;current_sign_in_at&quot; timestamp, &quot;last_sign_in_at&quot; timestamp, &quot;current_sign_in_ip&quot; character varying, &quot;last_sign_in_ip&quot; character varying, &quot;confirmation_token&quot; character varying, &quot;confirmed_at&quot; timestamp, &quot;confirmation_sent_at&quot; timestamp, &quot;unconfirmed_email&quot; character varying, &quot;name&quot; character varying, &quot;nickname&quot; character varying, &quot;image&quot; character varying, &quot;email&quot; character varying, &quot;tokens&quot; json, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL)[0m
+[1m[35m (39.4ms)[0m  [1m[35mCREATE  INDEX  &quot;index_users_on_email&quot; ON &quot;users&quot; USING btree (&quot;email&quot;)[0m
+[1m[35m (55.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  &quot;index_users_on_reset_password_token&quot; ON &quot;users&quot; USING btree (&quot;reset_password_token&quot;)[0m
+[1m[35m (206.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  &quot;index_users_on_uid_and_provider&quot; ON &quot;users&quot; USING btree (&quot;uid&quot;, &quot;provider&quot;)[0m
+[1m[35m (81.7ms)[0m  [1m[35mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; character varying PRIMARY KEY)[0m
+[1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM &quot;schema_migrations&quot;[0m
+[1m[35m (13.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (version) VALUES (&#39;20161127033248&#39;)[0m
+[1m[35m (13.0ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES (&#39;20160918064014&#39;), (&#39;20161002172030&#39;), (&#39;20160918060710&#39;);</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (121.7ms)[0m  [1m[35mCREATE TABLE &quot;ar_internal_metadata&quot; (&quot;key&quot; character varying PRIMARY KEY, &quot;value&quot; character varying, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL)[0m
+[1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  &quot;ar_internal_metadata&quot;.* FROM &quot;ar_internal_metadata&quot; WHERE &quot;ar_internal_metadata&quot;.&quot;key&quot; = $1 LIMIT $2[0m  [[&quot;key&quot;, :environment], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO &quot;ar_internal_metadata&quot; (&quot;key&quot;, &quot;value&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;key&quot;[0m  [[&quot;key&quot;, &quot;environment&quot;], [&quot;value&quot;, &quot;test&quot;], [&quot;created_at&quot;, 2016-12-26 03:07:08 UTC], [&quot;updated_at&quot;, 2016-12-26 03:07:08 UTC]]
+[1m[35m (44.2ms)[0m  [1m[35mCOMMIT[0m
+[1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  &quot;ar_internal_metadata&quot;.* FROM &quot;ar_internal_metadata&quot; WHERE &quot;ar_internal_metadata&quot;.&quot;key&quot; = $1 LIMIT $2[0m  [[&quot;key&quot;, :environment], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 1.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 1.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.6ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m
+[1m[36mAlert Load (0.2ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 8258ms (Views: 0.5ms | ActiveRecord: 2.4ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 1.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.3ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 1.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.4ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.3ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 1.4ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}</pre>
+
+<p>Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}</pre>
+
+<p>Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 04:56:31 UTC], [&quot;updated_at&quot;, 2016-12-26 04:56:31 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 2.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 04:56:52 UTC], [&quot;updated_at&quot;, 2016-12-26 04:56:52 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 2.8ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.2ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 04:57:23 UTC], [&quot;updated_at&quot;, 2016-12-26 04:57:23 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.1ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 04:57:57 UTC], [&quot;updated_at&quot;, 2016-12-26 04:57:57 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 3.3ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mAlert Load (0.2ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 04:58:17 UTC], [&quot;updated_at&quot;, 2016-12-26 04:58:17 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 2.9ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 04:58:17 UTC], [&quot;updated_at&quot;, 2016-12-26 04:58:17 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms) Processing by
+<a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[36mAlert Load (0.2ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;&quot;&quot;}</pre>
+
+<p>Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 04:59:32 UTC], [&quot;updated_at&quot;, 2016-12-26 04:59:32 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.6ms) Processing by
+<a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.9ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 05:00:17 UTC], [&quot;updated_at&quot;, 2016-12-26 05:00:17 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 2.8ms) Processing by
+<a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[36mAlert Load (0.2ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 3.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 05:00:41 UTC], [&quot;updated_at&quot;, 2016-12-26 05:00:41 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 3.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 05:00:41 UTC], [&quot;updated_at&quot;, 2016-12-26 05:00:41 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms) Processing by
+<a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[36mAlert Load (0.2ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 05:01:02 UTC], [&quot;updated_at&quot;, 2016-12-26 05:01:02 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 3.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 05:01:02 UTC], [&quot;updated_at&quot;, 2016-12-26 05:01:02 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms) Processing by
+<a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[36mAlert Load (0.3ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 05:01:06 UTC], [&quot;updated_at&quot;, 2016-12-26 05:01:06 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 3.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+
+<p>Processing by <a
+href="../Api/V2/AlertsController.html#method-i-create">Api::V2::AlertsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO &quot;alerts&quot; (&quot;alert_type_id&quot;, &quot;description&quot;, &quot;latitude&quot;, &quot;longitude&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;user_id&quot;) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING &quot;id&quot;[0m  [[&quot;alert_type_id&quot;, 1], [&quot;description&quot;, &quot;This is an alert test&quot;], [&quot;latitude&quot;, 45454.545], [&quot;longitude&quot;, -88741.23], [&quot;created_at&quot;, 2016-12-26 05:01:06 UTC], [&quot;updated_at&quot;, 2016-12-26 05:01:06 UTC], [&quot;user_id&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms) Processing by
+<a
+href="../Api/V2/AlertsController.html#method-i-index">Api::V2::AlertsController#index</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;alert&quot;=&gt;{&quot;alert_type_id&quot;=&gt;&quot;1&quot;, &quot;description&quot;=&gt;&quot;This is an alert test&quot;, &quot;latitude&quot;=&gt;&quot;45454.545&quot;, &quot;longitude&quot;=&gt;&quot;-88741.23&quot;, &quot;user_id&quot;=&gt;&quot;1&quot;}}
+[1m[36mAlert Load (0.2ms)[0m  [1m[34mSELECT &quot;alerts&quot;.* FROM &quot;alerts&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m</pre>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
