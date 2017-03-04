@@ -4,7 +4,7 @@ describe Api::V2::AlertsController do
   it "create an alert" do
     alert = build(:alert)
 
-    post :create, alert
+    post :create, params: { alert: alert.as_json}
 
     expect(response).to be_success
   end
@@ -12,14 +12,14 @@ describe Api::V2::AlertsController do
   it "retrieves a list of alerts" do
     alert = build(:alert)
 
-    # First of all creat an alert
-    post :create, alert
+    # First of all create an alert
+    post :create, params: { alert: alert.as_json}
 
     expect(response).to be_success
 
     get :index
 
-    # test for the 200 status-code
+    # Test for the 200 status-code
     expect(response).to be_success
 
     json = JSON.parse(response.body)

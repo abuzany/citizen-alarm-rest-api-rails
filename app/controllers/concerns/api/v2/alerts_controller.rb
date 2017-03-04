@@ -72,7 +72,6 @@ module Api
 																			:latitude,
 																			:longitude)
 			end
-
 		end
 	end
 end
