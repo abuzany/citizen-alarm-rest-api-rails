@@ -5,8 +5,8 @@ FactoryGirl.define do
     user
     alert_type
     description "This is an alert test"
-    latitude -1968.5
-    longitude 1689.65
+    latitude 19.427024500
+    longitude -99.167664700
   end
 
   factory :user do

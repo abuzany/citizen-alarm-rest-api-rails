@@ -4,17 +4,20 @@ class Alert < ApplicationRecord
   belongs_to :user
   belongs_to :alert_type
 
-  validates :user_id,
-            :alert_type_id,
-            :latitude,
-            :longitude,
-            presence: true
+   validates :user_id,
+             :alert_type_id,
+             :latitude,
+             :longitude,
+              presence: true
 
   validates :description,
             presence: true,
             allow_blank: false
 
   validates :description, length: { maximum: 140 }
+
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
 
   # This scope returns the alerts created today.
   scope :created_today, -> {

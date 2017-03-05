@@ -67,6 +67,7 @@ GEM
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     ffi (1.9.14)
+    geocoder (1.4.3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.6)
@@ -212,6 +213,7 @@ DEPENDENCIES
   devise
   devise_token_auth
   factory_girl
+  geocoder
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

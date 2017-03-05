@@ -57,3 +57,4 @@ gem 'responders'
 gem 'devise'
 gem 'devise_token_auth' # Token based authentication for Rails JSON APIs
 gem 'omniauth' # required for devise_token_auth
+gem 'geocoder'

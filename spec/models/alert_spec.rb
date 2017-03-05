@@ -59,4 +59,13 @@ RSpec.describe Alert, type: :model do
     expect(alert).to be_valid
   end
 
+  it "retrieves a correct addres when is created" do
+    alert = create(:alert)
+
+    # Expect retrieves "Independece Monument" address =)
+    expect(alert.address).to eql(
+      "Calle Río Tiber 204, Cuauhtémoc, 06500 Ciudad de México, CDMX, Mexico"
+    )
+  end
+
 end
